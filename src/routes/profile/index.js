@@ -20,7 +20,7 @@ const Profile = ({ user }) => {
 			<div>Current time: {new Date(time).toLocaleString()}</div>
 
 			<p>
-				<button class="border rounded px-6 py-2 bg-blue-400 hover:bg-purple-600 text-white" onClick={() => setCount((count) => count + 1)}>Click Me</button>
+				<button class="border rounded px-6 py-2 bg-green-900 hover:bg-purple-600 text-white" onClick={() => setCount((count) => count + 1)}>Click Me</button>
 				{' '}
 				Clicked {count} times.
 			</p>

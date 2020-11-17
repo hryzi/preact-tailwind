@@ -1,8 +1,12 @@
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import tailwind from 'preact-cli-tailwind';
 
 const preactCliSwPrecachePlugin = require('preact-cli-sw-precache');
 
-export default function (config) {
+export default function (config, env, helpers) {
+  
+  config = tailwind(config, env, helpers);
+
   // copy all static assets files to server root dir...
   config.plugins.push( new CopyWebpackPlugin([{ context: `${__dirname}/src/assets`, from: `*.*` }]) );
   // app cache configs...
