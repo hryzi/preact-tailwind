@@ -1,16 +1,16 @@
 {
   "private": true,
   "name": "preact-tailwind",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "preact build --service-worker false --preload --prerenderUrls prerender-urls.json --template ./src/template.html",
+    "build": "npm run build:css && preact build --service-worker false --preload --prerenderUrls prerender-urls.json --template ./src/template.html",
     "serve": "sirv build --port 8080 --cors --single",
     "dev": "preact watch",
     "lint": "eslint src",
     "test": "jest",
     "build:css": "postcss ./src/assets/css/tailwind.css -o ./src/assets/css/styles.css",
-    "watch:css": "postcss ./src/assets/css/tailwind.css -o ./src/assets/css/styles.css"
+    "watch:css": "postcss ./src/assets/css/tailwind.css -o ./src/assets/css/styles.css --watch"
   },
   "eslintConfig": {
     "extends": "preact",
