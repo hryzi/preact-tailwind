@@ -35,9 +35,11 @@
     "tailwindcss": "^1.9.6"
   },
   "dependencies": {
+    "axios": "^0.21.0",
     "polka": "^0.5.2",
     "preact": "^10.3.2",
     "preact-helmet": "^4.0.0-alpha-3",
+    "preact-markdown": "^2.0.0",
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1"
   },
