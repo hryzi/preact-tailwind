@@ -1,12 +1,13 @@
 import Axios from 'axios';
 import { h, Component } from 'preact';
 import style from './style.css';
+import { route } from 'preact-router';
 import Markdown from 'preact-markdown';
 
 class Profile extends Component {
 	constructor(){
 		super();
-		
+
 		this.state = {
 			story: null,
 			errored: false
@@ -21,21 +22,22 @@ class Profile extends Component {
 	componentDidMount(){
 		Axios.get('http://localhost:3001/stories/' + this.props.user)
 		.then((res) => this.setState({story: res.data}))
-		.catch((e)=>console.error('CATCH!', e));
+		.catch((e)=> {
+			// console.error('CATCH!', e);
+			this.setState({errored: true})
+			// route('/home', true);
+		});
 	}
 
     render(props, state) {
 		if (state.errored) {
-			return <p>Something went badly wrong</p>;
+			console.log('jsem v errored');
+			return <p class="container mt-48 p-2 border rounded bg-red-500 text-white">Something went badly wrong</p>;
 		}
 		if (state.story !== null) {
 			return (
-				<div class={style.profile}>
-				<h1>Story title is: {state.story.title}</h1>
-				<p>This is the user profile for a user named { props.user }.</p>
-
+			<div class="container">
 				<Markdown markdown={this.state.story.body} />
-
 			</div>
 			)
 		}
